@@ -3,7 +3,7 @@ const express = require("express");
 const morgan=require('morgan');
 const connecton = require("./config/db");
 const authRoute =require('./routes/authRoute')
-
+const categoryRoute=require("./routes/categoryRoute")
 dotenv.config();
 
 connecton();
@@ -14,6 +14,9 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use("/api/auth", authRoute);
+
+app.use("/api/category",categoryRoute)
+
 app.get("/", (req, res) => {
   res.send("Welcome");
 });
