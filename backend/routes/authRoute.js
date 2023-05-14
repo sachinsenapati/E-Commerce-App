@@ -30,4 +30,16 @@ router.post("/forgot-password",forgotPasswordController)
 router.get("/testing", protect, isAdmin,testController);
 
 
+
+router.get("/user-auth",protect,(req ,res)=>{
+  res.status(200).send({ok:true})
+})
+
+
+
+router.get("/admin-auth", protect,isAdmin, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+
+
 module.exports = router;

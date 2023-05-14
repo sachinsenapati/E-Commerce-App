@@ -3,6 +3,7 @@ const { hashPassword, comparePassword } = require("../helpers/helper");
 const JWT = require("jsonwebtoken");
 
 const registerController = async (req, res) => {
+  console.log(req.body)
   const { name, email, password, phone, address, question } = req.body;
   try {
     if (!name || !email || !password || !phone || !address || !question) {
@@ -70,6 +71,7 @@ const loginController = async (req, res) => {
         email: user.email,
         phone: user.phone,
         address: user.address,
+        role:user.role
       },
       token,
     });
@@ -122,7 +124,7 @@ const forgotPasswordController = async (req, res) => {
 };
 
 const testController = async (req, res) => {
-  res.send("Hello im protected");
+  res.send({message:"Hello im protected",success:true});
 };
 module.exports = {
   registerController,
