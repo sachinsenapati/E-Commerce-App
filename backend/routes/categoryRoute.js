@@ -22,8 +22,7 @@ router.get("/getall-category",getAllCategoryController);
 //singCategory
 router.get(
   "/single-category/:slug",
-  protect,
-  isAdmin,
+  
   getSingleCategoryController
 );
 
