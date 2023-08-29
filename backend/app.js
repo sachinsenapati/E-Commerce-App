@@ -24,7 +24,7 @@ app.use("/api/product",productRoute)
 app.get("/", (req, res) => {
   res.send("Welcome");
 });
-const PORT = 5000;
+const PORT = process.env.PORT||5000;
 app.listen(PORT, () => {
-  console.log(`server running on ${process.env.DEV_MODE} mode on port ${PORT}`);
+  console.log(`server running on port ${PORT}`);
 });
